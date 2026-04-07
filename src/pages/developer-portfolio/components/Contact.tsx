@@ -1,19 +1,50 @@
 
 import React, { useState } from 'react';
+import { getContactEmail, sendContactMessage } from '../../../lib/contactForm';
 
 export default function Contact() {
+  const contactEmail = getContactEmail();
+  const githubUrl = import.meta.env.VITE_GITHUB_URL || 'https://github.com/';
+  const linkedinUrl = import.meta.env.VITE_LINKEDIN_URL || 'https://linkedin.com/';
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setSubmitError('');
+
+    try {
+      await sendContactMessage({
+        nom: formData.name,
+        email_expediteur: formData.email,
+        sujet: formData.subject,
+        message: formData.message,
+        _source: 'Developer Portfolio',
+        _subject: formData.subject || `Nouveau message portfolio de ${formData.name}`
+      });
+
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 3000);
+    } catch (error) {
+      console.error('Contact form error:', error);
+      const message = error instanceof Error ? error.message : "Impossible d'envoyer le message pour le moment. Reessayez.";
+      setSubmitError(message);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -50,7 +81,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-xs sm:text-sm text-blue-100">Email</p>
-                    <p className="text-sm sm:text-base font-semibold break-all">contact@bencherif-faroukou.com</p>
+                    <p className="text-sm sm:text-base font-semibold break-all">{contactEmail}</p>
                   </div>
                 </div>
                 
@@ -73,13 +104,30 @@ export default function Contact() {
                     <p className="text-sm sm:text-base font-semibold">Paris, France</p>
                   </div>
                 </div>
+
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <i className="ri-github-fill text-xl sm:text-2xl"></i>
+                  </div>
+                  <div>
+                    <p className="text-xs sm:text-sm text-blue-100">GitHub</p>
+                    <a
+                      href={githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm sm:text-base font-semibold break-all hover:underline"
+                    >
+                      {githubUrl}
+                    </a>
+                  </div>
+                </div>
               </div>
 
               <div className="flex gap-3 sm:gap-4 mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/20">
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+                <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
                   <i className="ri-github-fill text-xl sm:text-2xl"></i>
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+                <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
                   <i className="ri-linkedin-fill text-xl sm:text-2xl"></i>
                 </a>
                 <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
@@ -162,10 +210,25 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer shadow-lg shadow-blue-500/30"
+                disabled={isSubmitting || formData.message.length > 500}
+                className="w-full bg-blue-500 hover:bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer shadow-lg shadow-blue-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                Envoyer le message
+                {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
               </button>
+
+              {submitStatus === 'success' && (
+                <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg flex items-center">
+                  <i className="ri-check-circle-line mr-2"></i>
+                  Message envoye avec succes. Je vous repondrai rapidement.
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg flex items-center">
+                  <i className="ri-error-warning-line mr-2"></i>
+                  {submitError || "Impossible d'envoyer le message pour le moment. Reessayez."}
+                </div>
+              )}
             </form>
           </div>
         </div>

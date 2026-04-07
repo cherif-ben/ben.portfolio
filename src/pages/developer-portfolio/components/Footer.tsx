@@ -3,6 +3,9 @@ import React from 'react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const contactEmail = import.meta.env.VITE_CONTACT_RECEIVER_EMAIL || 'benfaroukoucherif@gmail.com';
+  const githubUrl = import.meta.env.VITE_GITHUB_URL || 'https://github.com/';
+  const linkedinUrl = import.meta.env.VITE_LINKEDIN_URL || 'https://linkedin.com/';
 
   return (
     <footer className="bg-gradient-to-r from-black via-gray-900 to-blue-900 text-white py-8 sm:py-10 lg:py-12">
@@ -16,10 +19,10 @@ export default function Footer() {
               Développeur Full Stack & Designer passionné par la création d'expériences digitales exceptionnelles.
             </p>
             <div className="flex gap-3 sm:gap-4">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 bg-blue-600 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 bg-blue-600 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
                 <i className="ri-github-fill text-lg sm:text-xl"></i>
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 bg-blue-600 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
+              <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 bg-blue-600 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
                 <i className="ri-linkedin-fill text-lg sm:text-xl"></i>
               </a>
               <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 sm:w-10 sm:h-10 bg-blue-600 hover:bg-blue-700 rounded-lg flex items-center justify-center transition-colors cursor-pointer">
@@ -82,7 +85,7 @@ export default function Footer() {
             <ul className="space-y-2 sm:space-y-3 text-gray-300 text-sm sm:text-base">
               <li className="flex items-start gap-2">
                 <i className="ri-mail-line text-blue-400 mt-1 flex-shrink-0"></i>
-                <span className="break-all">contact@bencherif-faroukou.com</span>
+                <span className="break-all">{contactEmail}</span>
               </li>
               <li className="flex items-center gap-2">
                 <i className="ri-phone-line text-blue-400 flex-shrink-0"></i>

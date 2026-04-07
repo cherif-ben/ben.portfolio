@@ -2,20 +2,21 @@
 import React from 'react';
 
 export default function Projects() {
+  // Images locales depuis /public/projects
   const projects = [
     {
-      title: 'KotaFlix - Plateforme de Streaming',
-      description: 'Fondatrice et Présidente de KotaFlix, plateforme de streaming centrafricaine. Développement de la stratégie de communication et gestion des contenus audiovisuels.',
-      image: 'https://readdy.ai/api/search-image?query=Modern%20streaming%20platform%20interface%20on%20laptop%20screen%2C%20African%20content%2C%20contemporary%20design%2C%20professional%20workspace%2C%20technology%20innovation%2C%20digital%20entertainment%20platform%2C%20sleek%20user%20interface&width=600&height=400&seq=kotaflix-project&orientation=landscape',
-      tags: ['Leadership', 'Streaming', 'Audiovisuel', 'Stratégie'],
+      title: 'TaskFlow - Application de Gestion de Tâches',
+      description: 'TaskFlow est une application de gestion de tâches qui permet de planifier les projets, organiser les priorités, suivre l\'avancement en temps réel et collaborer efficacement en équipe grâce à une interface simple et intuitive.',
+      image: '/projet-taskflow.png',
+      tags: ['Gestion de tâches', 'Productivité', 'Collaboration', 'Suivi de projet'],
       icon: 'ri-play-circle-line'
     },
     {
-      title: 'Réalisation Cinématographique',
-      description: 'Projets académiques de réalisation de films, de la conception à la post-production. Développement des compétences en narration visuelle et direction artistique.',
-      image: 'https://readdy.ai/api/search-image?query=Professional%20film%20production%20setup%20with%20camera%20equipment%2C%20lighting%20gear%2C%20film%20crew%20working%2C%20cinema%20production%20environment%2C%20professional%20filmmaking%2C%20movie%20set%20atmosphere&width=600&height=400&seq=filmmaking-project&orientation=landscape',
-      tags: ['Réalisation', 'Cinéma', 'Post-production', 'Créativité'],
-      icon: 'ri-movie-2-line'
+      title: 'BenResto - Application de Gestion du Cafétériat',
+      description: 'BenResto est une application qui aide les cafés et restaurants à gérer les commandes, suivre les stocks, organiser les équipes et analyser les ventes quotidiennes via un tableau de bord clair.',
+      image: '/projet-cafe.png',
+      tags: ['Gestion de commandes', 'Restauration', 'Stock', 'Tableau de bord'],
+      icon: 'ri-cup-line'
     },
     {
       title: 'Développement CMS',
