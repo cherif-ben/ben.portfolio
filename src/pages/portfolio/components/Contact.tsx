@@ -1,10 +1,12 @@
-
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { getContactEmail, sendContactMessage } from '../../../lib/contactForm';
 
 export default function Contact() {
+  const { t } = useTranslation();
   const contactEmail = getContactEmail();
   const githubUrl = import.meta.env.VITE_GITHUB_URL || 'https://github.com/cherif-ben';
+  const gitlabUrl = import.meta.env.VITE_GITLAB_URL || 'https://gitlab.com/cherif-ben';
   const linkedinUrl = import.meta.env.VITE_LINKEDIN_URL || 'https://www.linkedin.com/in/ben-faroukou-cherif';
   const [formData, setFormData] = useState({
     name: '',
@@ -48,7 +50,7 @@ export default function Contact() {
       }, 3000);
     } catch (error) {
       console.error('Contact form error:', error);
-      const message = error instanceof Error ? error.message : 'Unable to send message right now. Please try again.';
+      const message = error instanceof Error ? error.message : t('form.errorDefault');
       setSubmitError(message);
       setSubmitStatus('error');
     } finally {
@@ -61,22 +63,23 @@ export default function Contact() {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Let's Connect</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+              {t('portfolio.contact.title')}
+            </h2>
             <div className="w-24 h-1 bg-blue-500 mx-auto mb-4"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ready to discuss apprenticeship opportunities or potential collaborations
+              {t('portfolio.contact.subtitle')}
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            
-           
             <div className="space-y-8">
               <div>
-                <h3 className="text-3xl font-bold text-gray-800 mb-6">Get in Touch</h3>
+                <h3 className="text-3xl font-bold text-gray-800 mb-6">
+                  {t('portfolio.contact.getInTouch', 'Get in Touch')}
+                </h3>
                 <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                  I'm actively seeking apprenticeship opportunities in communication and marketing. 
-                  Let's discuss how my skills and passion can contribute to your team's success.
+                  {t('portfolio.contact.intro', "I'm actively seeking apprenticeship opportunities in communication and marketing. Let's discuss how my skills and passion can contribute to your team's success.")}
                 </p>
               </div>
 
@@ -86,7 +89,7 @@ export default function Contact() {
                     <i className="ri-mail-line text-blue-600 text-xl"></i>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">Email</h4>
+                    <h4 className="font-semibold text-gray-800">{t('contactInfo.email')}</h4>
                     <p className="text-gray-600">{contactEmail}</p>
                   </div>
                 </div>
@@ -101,7 +104,7 @@ export default function Contact() {
                     <i className="ri-linkedin-line text-blue-600 text-xl"></i>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">LinkedIn</h4>
+                    <h4 className="font-semibold text-gray-800">{t('social.linkedin')}</h4>
                     <p className="text-gray-600 break-all">{linkedinUrl}</p>
                   </div>
                 </a>
@@ -115,8 +118,22 @@ export default function Contact() {
                     <i className="ri-github-line text-blue-600 text-xl"></i>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">Github</h4>
+                    <h4 className="font-semibold text-gray-800">{t('social.github')}</h4>
                     <p className="text-gray-600 break-all">{githubUrl}</p>
+                  </div>
+                </a>
+                <a
+                  href={gitlabUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+                >
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                    <i className="ri-gitlab-line text-blue-600 text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800">{t('social.gitlab')}</h4>
+                    <p className="text-gray-600 break-all">{gitlabUrl}</p>
                   </div>
                 </a>
 
@@ -125,34 +142,35 @@ export default function Contact() {
                     <i className="ri-phone-line text-blue-600 text-xl"></i>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800">Phone</h4>
-                    <p className="text-gray-600">+237 687 776 325</p>
+                    <h4 className="font-semibold text-gray-800">{t('contactInfo.phone')}</h4>
+                    <p className="text-gray-600">{t('portfolio.contact.phone')}</p>
                   </div>
                 </div>
               </div>
 
-              {/* Call to action */}
               <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-8 rounded-2xl text-white">
-                <h4 className="text-xl font-bold mb-3">Looking for an Apprentice?</h4>
-                <p className="mb-4">
-                  I bring creativity, dedication, and a fresh perspective to communication and marketing challenges.
+                <h4 className="text-xl font-bold mb-3 flex items-center">
+                  <i className="ri-target-line text-blue-600 mr-2"></i>
+                  {t('portfolio.contact.cta.title')}
+                </h4>
+                <p className="text-lg mb-6 opacity-90">
+                  {t('portfolio.contact.cta.text')}
                 </p>
                 <div className="flex items-center">
                   <i className="ri-download-2-line mr-2"></i>
-                  <span className="font-semibold">CV available upon request</span>
+                  <span className="font-semibold">{t('portfolio.contact.cta.cv')}</span>
                 </div>
               </div>
             </div>
 
-            {/* Contact Form */}
             <div className="bg-white rounded-2xl shadow-xl p-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Send a Message</h3>
-              
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">{t('portfolio.contact.sendMessage')}</h3>
+
               <form id="contact-form" onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Full Name *
+                      {t('portfolio.contact.formLabels.fullName')}
                     </label>
                     <input
                       type="text"
@@ -162,12 +180,12 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm"
-                      placeholder="Ben Cherif Faroukou"
+                      placeholder={t('portfolio.contact.formPlaceholders.fullName')}
                     />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Email Address *
+                      {t('portfolio.contact.formLabels.email')}
                     </label>
                     <input
                       type="email"
@@ -177,15 +195,14 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm"
-                      placeholder="votre@email.com"
+                      placeholder={t('portfolio.contact.formPlaceholders.email')}
                     />
                   </div>
                 </div>
 
-                
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Message *
+                    {t('portfolio.contact.formLabels.message')}
                   </label>
                   <textarea
                     id="message"
@@ -196,10 +213,10 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none text-sm"
-                    placeholder="Tell me about the apprenticeship opportunity or how we can collaborate..."
+                    placeholder={t('portfolio.contact.formPlaceholders.message')}
                   />
                   <div className="text-right text-xs text-gray-500 mt-1">
-                    {formData.message.length}/500 characters
+                    {t('form.charCount', { count: formData.message.length })}
                   </div>
                 </div>
 
@@ -211,12 +228,12 @@ export default function Contact() {
                   {isSubmitting ? (
                     <span className="flex items-center justify-center">
                       <i className="ri-loader-4-line animate-spin mr-2"></i>
-                      Sending...
+                      {t('portfolio.contact.form.sending')}
                     </span>
                   ) : (
                     <span className="flex items-center justify-center">
                       <i className="ri-send-plane-line mr-2"></i>
-                      Send Message
+                      {t('portfolio.contact.form.submit')}
                     </span>
                   )}
                 </button>
@@ -224,14 +241,14 @@ export default function Contact() {
                 {submitStatus === 'success' && (
                   <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg flex items-center">
                     <i className="ri-check-circle-line mr-2"></i>
-                    Message sent successfully! I'll get back to you soon.
+                    {t('form.success')}
                   </div>
                 )}
 
                 {submitStatus === 'error' && (
                   <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg flex items-center">
                     <i className="ri-error-warning-line mr-2"></i>
-                    {submitError || 'Unable to send message right now. Please try again.'}
+                    {submitError || t('form.errorDefault')}
                   </div>
                 )}
               </form>

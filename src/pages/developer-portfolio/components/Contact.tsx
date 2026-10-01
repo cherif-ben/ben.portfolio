@@ -1,8 +1,9 @@
-
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { getContactEmail, sendContactMessage } from '../../../lib/contactForm';
 
 export default function Contact() {
+  const { t } = useTranslation();
   const contactEmail = getContactEmail();
   const githubUrl = import.meta.env.VITE_GITHUB_URL || 'https://github.com/';
   const linkedinUrl = import.meta.env.VITE_LINKEDIN_URL || 'https://linkedin.com/';
@@ -39,7 +40,7 @@ export default function Contact() {
       }, 3000);
     } catch (error) {
       console.error('Contact form error:', error);
-      const message = error instanceof Error ? error.message : "Impossible d'envoyer le message pour le moment. Reessayez.";
+      const message = error instanceof Error ? error.message : t('developer.contact.form.errorDefault');
       setSubmitError(message);
       setSubmitStatus('error');
     } finally {
@@ -59,19 +60,19 @@ export default function Contact() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
-            Contactez-<span className="text-blue-500">moi</span>
+            {t('developer.contact.titlePart1')}<span className="text-blue-500">{t('developer.contact.titlePart2')}</span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Un projet en tête ? Discutons ensemble de la meilleure façon de le concrétiser
+            {t('developer.contact.subtitle')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           <div>
             <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-8 sm:p-10 lg:p-12 rounded-2xl text-white mb-6 sm:mb-8">
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Travaillons ensemble</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">{t('developer.contact.cta.title')}</h3>
               <p className="text-base sm:text-lg mb-6 sm:mb-8 text-blue-50">
-                Je suis toujours ouvert à de nouveaux projets et collaborations. N'hésitez pas à me contacter pour discuter de vos besoins.
+                {t('developer.contact.cta.text')}
               </p>
               
               <div className="space-y-4 sm:space-y-6">
@@ -80,7 +81,7 @@ export default function Contact() {
                     <i className="ri-mail-line text-xl sm:text-2xl"></i>
                   </div>
                   <div>
-                    <p className="text-xs sm:text-sm text-blue-100">Email</p>
+                    <p className="text-xs sm:text-sm text-blue-100">{t('developer.contact.info.email')}</p>
                     <p className="text-sm sm:text-base font-semibold break-all">{contactEmail}</p>
                   </div>
                 </div>
@@ -90,8 +91,8 @@ export default function Contact() {
                     <i className="ri-phone-line text-xl sm:text-2xl"></i>
                   </div>
                   <div>
-                    <p className="text-xs sm:text-sm text-blue-100">Téléphone</p>
-                    <p className="text-sm sm:text-base font-semibold">+33 6 12 34 56 78</p>
+                    <p className="text-xs sm:text-sm text-blue-100">{t('developer.contact.info.phone')}</p>
+                    <p className="text-sm sm:text-base font-semibold">{t('developer.contact.info.phoneValue')}</p>
                   </div>
                 </div>
                 
@@ -100,8 +101,8 @@ export default function Contact() {
                     <i className="ri-map-pin-line text-xl sm:text-2xl"></i>
                   </div>
                   <div>
-                    <p className="text-xs sm:text-sm text-blue-100">Localisation</p>
-                    <p className="text-sm sm:text-base font-semibold">Paris, France</p>
+                    <p className="text-xs sm:text-sm text-blue-100">{t('developer.contact.info.location')}</p>
+                    <p className="text-sm sm:text-base font-semibold">{t('developer.contact.info.locationValue')}</p>
                   </div>
                 </div>
 
@@ -110,7 +111,7 @@ export default function Contact() {
                     <i className="ri-github-fill text-xl sm:text-2xl"></i>
                   </div>
                   <div>
-                    <p className="text-xs sm:text-sm text-blue-100">GitHub</p>
+                    <p className="text-xs sm:text-sm text-blue-100">{t('social.github')}</p>
                     <a
                       href={githubUrl}
                       target="_blank"
@@ -144,7 +145,7 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Nom complet
+                  {t('developer.contact.formLabels.name')}
                 </label>
                 <input
                   type="text"
@@ -154,13 +155,13 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm"
-                  placeholder="Votre nom"
+                  placeholder={t('developer.contact.formPlaceholders.name')}
                 />
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Email
+                  {t('developer.contact.formLabels.email')}
                 </label>
                 <input
                   type="email"
@@ -170,13 +171,13 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm"
-                  placeholder="votre@email.com"
+                  placeholder={t('developer.contact.formPlaceholders.email')}
                 />
               </div>
 
               <div>
                 <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Sujet
+                  {t('developer.contact.formLabels.subject')}
                 </label>
                 <input
                   type="text"
@@ -186,13 +187,13 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-sm"
-                  placeholder="Sujet de votre message"
+                  placeholder={t('developer.contact.formPlaceholders.subject')}
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                  Message
+                  {t('developer.contact.formLabels.message')}
                 </label>
                 <textarea
                   id="message"
@@ -203,9 +204,9 @@ export default function Contact() {
                   rows={6}
                   maxLength={500}
                   className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none text-sm"
-                  placeholder="Décrivez votre projet..."
+                  placeholder={t('developer.contact.formPlaceholders.message')}
                 ></textarea>
-                <p className="text-xs sm:text-sm text-gray-500 mt-2">Maximum 500 caractères</p>
+                <p className="text-xs sm:text-sm text-gray-500 mt-2">{t('developer.contact.form.charCount')}</p>
               </div>
 
               <button
@@ -213,20 +214,20 @@ export default function Contact() {
                 disabled={isSubmitting || formData.message.length > 500}
                 className="w-full bg-blue-500 hover:bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer shadow-lg shadow-blue-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
+                {isSubmitting ? t('developer.contact.form.sending') : t('developer.contact.form.submit')}
               </button>
 
               {submitStatus === 'success' && (
                 <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg flex items-center">
                   <i className="ri-check-circle-line mr-2"></i>
-                  Message envoye avec succes. Je vous repondrai rapidement.
+                  {t('developer.contact.form.success')}
                 </div>
               )}
 
               {submitStatus === 'error' && (
                 <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg flex items-center">
                   <i className="ri-error-warning-line mr-2"></i>
-                  {submitError || "Impossible d'envoyer le message pour le moment. Reessayez."}
+                  {submitError || t('developer.contact.form.errorDefault')}
                 </div>
               )}
             </form>

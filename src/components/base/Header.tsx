@@ -1,7 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import LanguageToggle from '../base/LanguageToggle';
 
 export default function Header() {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -23,11 +25,11 @@ export default function Header() {
   };
 
   const navigationItems = [
-    { id: 'hero', label: 'Accueil', icon: 'ri-home-line' },
-    { id: 'about', label: 'À propos', icon: 'ri-user-line' },
-    { id: 'projects', label: 'Projets', icon: 'ri-folder-line' },
-    { id: 'skills', label: 'Compétences', icon: 'ri-tools-line' },
-    { id: 'contact', label: 'Contact', icon: 'ri-mail-line' }
+    { id: 'hero', labelKey: 'nav.home', icon: 'ri-home-line' },
+    { id: 'about', labelKey: 'nav.about', icon: 'ri-user-line' },
+    { id: 'projects', labelKey: 'nav.projects', icon: 'ri-folder-line' },
+    { id: 'skills', labelKey: 'nav.skills', icon: 'ri-tools-line' },
+    { id: 'contact', labelKey: 'nav.contact', icon: 'ri-mail-line' }
   ];
 
   return (
@@ -53,10 +55,15 @@ export default function Header() {
                 className="flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 text-white hover:bg-blue-600 whitespace-nowrap cursor-pointer"
               >
                 <i className={`${item.icon} text-sm`}></i>
-                <span className="font-medium">{item.label}</span>
+                <span className="font-medium">{t(item.labelKey)}</span>
               </button>
             ))}
           </nav>
+
+          {/* Language Toggle */}
+          <div className="flex items-center gap-4">
+            <LanguageToggle />
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -79,7 +86,7 @@ export default function Header() {
                 className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-blue-600 rounded-xl transition-all duration-200 cursor-pointer whitespace-nowrap"
               >
                 <i className={`${item.icon} text-lg`}></i>
-                <span className="font-medium">{item.label}</span>
+                <span className="font-medium">{t(item.labelKey)}</span>
               </button>
             ))}
           </nav>
