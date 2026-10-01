@@ -1,10 +1,12 @@
-
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Skills() {
+  const { t } = useTranslation();
+
   const skillCategories = [
     {
-      title: 'Frontend',
+      titleKey: 'developer.skills.categories.frontend',
       icon: 'ri-layout-line',
       skills: [
         { name: 'React / Next.js', level: 95 },
@@ -14,7 +16,7 @@ export default function Skills() {
       ]
     },
     {
-      title: 'Backend',
+      titleKey: 'developer.skills.categories.backend',
       icon: 'ri-server-line',
       skills: [
         { name: 'Node.js / Express', level: 90 },
@@ -24,7 +26,7 @@ export default function Skills() {
       ]
     },
     {
-      title: 'Design',
+      titleKey: 'developer.skills.categories.design',
       icon: 'ri-palette-line',
       skills: [
         { name: 'Figma / Adobe XD', level: 93 },
@@ -34,7 +36,7 @@ export default function Skills() {
       ]
     },
     {
-      title: 'Outils & DevOps',
+      titleKey: 'developer.skills.categories.devops',
       icon: 'ri-tools-line',
       skills: [
         { name: 'Git / GitHub', level: 95 },
@@ -61,10 +63,10 @@ export default function Skills() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
-            Mes <span className="text-blue-500">Compétences</span>
+            {t('developer.skills.titlePart1')}<span className="text-blue-500">{t('developer.skills.titlePart2')}</span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Une expertise technique complète pour créer des solutions digitales performantes et innovantes
+            {t('developer.skills.subtitle')}
           </p>
         </div>
 
@@ -75,7 +77,7 @@ export default function Skills() {
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 rounded-lg flex items-center justify-center">
                   <i className={`${category.icon} text-white text-xl sm:text-2xl`}></i>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{category.title}</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{t(category.titleKey)}</h3>
               </div>
               
               <div className="space-y-4 sm:space-y-6">
@@ -99,7 +101,7 @@ export default function Skills() {
         </div>
 
         <div className="bg-white p-6 sm:p-8 lg:p-12 rounded-2xl shadow-lg">
-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">Technologies & Outils</h3>
+          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">{t('developer.skills.toolsTitle')}</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 sm:gap-6">
             {tools.map((tool, index) => (
               <div 

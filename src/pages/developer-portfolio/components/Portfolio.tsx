@@ -1,65 +1,66 @@
-
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Portfolio() {
+  const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState('all');
 
   const projects = [
     {
-      title: 'Plateforme E-commerce',
+      title: t('developer.portfolio.items.ecommerce.title'),
       category: 'web',
       image: 'https://readdy.ai/api/search-image?query=Modern%20e-commerce%20website%20interface%20on%20laptop%20screen%2C%20clean%20product%20showcase%2C%20shopping%20cart%20interface%2C%20professional%20online%20store%20design%2C%20contemporary%20web%20application%2C%20minimalist%20layout%20with%20product%20images&width=800&height=600&seq=project-ecommerce&orientation=landscape',
-      description: 'Boutique en ligne complète avec paiement sécurisé et gestion de stock',
-      tags: ['React', 'Node.js', 'Stripe', 'MongoDB'],
+      description: t('developer.portfolio.items.ecommerce.description'),
+      tags: t('developer.portfolio.items.ecommerce.tags', { returnObjects: true }),
       link: '#'
     },
     {
-      title: 'Application SaaS',
+      title: t('developer.portfolio.items.saas.title'),
       category: 'web',
       image: 'https://readdy.ai/api/search-image?query=Modern%20SaaS%20dashboard%20interface%20on%20computer%20screen%2C%20analytics%20charts%20and%20graphs%2C%20professional%20business%20application%2C%20clean%20data%20visualization%2C%20contemporary%20web%20app%20design%2C%20minimalist%20user%20interface&width=800&height=600&seq=project-saas&orientation=landscape',
-      description: 'Dashboard analytique pour la gestion de projets et équipes',
-      tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Tailwind'],
+      description: t('developer.portfolio.items.saas.description'),
+      tags: t('developer.portfolio.items.saas.tags', { returnObjects: true }),
       link: '#'
     },
     {
-      title: 'Portfolio Créatif',
+      title: t('developer.portfolio.items.creative.title'),
       category: 'design',
       image: 'https://readdy.ai/api/search-image?query=Creative%20portfolio%20website%20design%20on%20screen%2C%20artistic%20layout%20with%20image%20gallery%2C%20modern%20web%20design%20showcase%2C%20contemporary%20digital%20portfolio%2C%20minimalist%20creative%20presentation%2C%20professional%20design%20work%20display&width=800&height=600&seq=project-portfolio&orientation=landscape',
-      description: 'Site portfolio interactif pour artiste avec galerie dynamique',
-      tags: ['React', 'Framer Motion', 'Figma', 'Design System'],
+      description: t('developer.portfolio.items.creative.description'),
+      tags: t('developer.portfolio.items.creative.tags', { returnObjects: true }),
       link: '#'
     },
     {
-      title: 'Application Mobile',
+      title: t('developer.portfolio.items.mobile.title'),
       category: 'mobile',
       image: 'https://readdy.ai/api/search-image?query=Mobile%20app%20interface%20design%20on%20smartphone%20screen%2C%20modern%20application%20UI%2C%20clean%20mobile%20user%20experience%2C%20contemporary%20app%20design%2C%20professional%20mobile%20interface%2C%20minimalist%20app%20layout&width=800&height=600&seq=project-mobile&orientation=landscape',
-      description: 'App de fitness avec suivi personnalisé et coaching',
-      tags: ['React Native', 'Firebase', 'Redux', 'UI/UX'],
+      description: t('developer.portfolio.items.mobile.description'),
+      tags: t('developer.portfolio.items.mobile.tags', { returnObjects: true }),
       link: '#'
     },
     {
-      title: 'Site Corporate',
+      title: t('developer.portfolio.items.corporate.title'),
       category: 'web',
       image: 'https://readdy.ai/api/search-image?query=Professional%20corporate%20website%20on%20laptop%20screen%2C%20modern%20business%20website%20design%2C%20clean%20company%20homepage%2C%20contemporary%20web%20presence%2C%20minimalist%20corporate%20layout%2C%20professional%20business%20site&width=800&height=600&seq=project-corporate&orientation=landscape',
-      description: 'Site vitrine multilingue pour entreprise internationale',
-      tags: ['Next.js', 'i18n', 'CMS', 'SEO'],
+      description: t('developer.portfolio.items.corporate.description'),
+      tags: t('developer.portfolio.items.corporate.tags', { returnObjects: true }),
       link: '#'
     },
     {
-      title: 'Branding & Identité',
+      title: t('developer.portfolio.items.branding.title'),
       category: 'design',
       image: 'https://readdy.ai/api/search-image?query=Brand%20identity%20design%20showcase%2C%20logo%20designs%20and%20brand%20guidelines%2C%20modern%20graphic%20design%20presentation%2C%20contemporary%20branding%20materials%2C%20professional%20identity%20system%2C%20minimalist%20design%20elements&width=800&height=600&seq=project-branding&orientation=landscape',
-      description: 'Identité visuelle complète pour startup tech',
-      tags: ['Illustrator', 'Photoshop', 'Brand Design', 'Logo'],
+      description: t('developer.portfolio.items.branding.description'),
+      tags: t('developer.portfolio.items.branding.tags', { returnObjects: true }),
       link: '#'
     }
   ];
 
   const filters = [
-    { id: 'all', label: 'Tous' },
-    { id: 'web', label: 'Web' },
-    { id: 'mobile', label: 'Mobile' },
-    { id: 'design', label: 'Design' }
+    { id: 'all', labelKey: 'developer.portfolio.filters.all' },
+    { id: 'web', labelKey: 'developer.portfolio.filters.web' },
+    { id: 'mobile', labelKey: 'developer.portfolio.filters.mobile' },
+    { id: 'design', labelKey: 'developer.portfolio.filters.design' }
   ];
 
   const filteredProjects = activeFilter === 'all' 
@@ -71,10 +72,10 @@ export default function Portfolio() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
-            Mes <span className="text-blue-500">Réalisations</span>
+            {t('developer.portfolio.titlePart1')}<span className="text-blue-500">{t('developer.portfolio.titlePart2')}</span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto mb-8 sm:mb-12 px-4">
-            Découvrez une sélection de projets qui illustrent mon expertise en développement et design
+            {t('developer.portfolio.subtitle')}
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
@@ -88,7 +89,7 @@ export default function Portfolio() {
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
-                {filter.label}
+                {t(filter.labelKey)}
               </button>
             ))}
           </div>
@@ -111,7 +112,7 @@ export default function Portfolio() {
                     href={project.link}
                     className="bg-white text-gray-900 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 whitespace-nowrap cursor-pointer text-sm sm:text-base"
                   >
-                    Voir le projet
+                    {t('developer.portfolio.viewProject')}
                   </a>
                 </div>
               </div>

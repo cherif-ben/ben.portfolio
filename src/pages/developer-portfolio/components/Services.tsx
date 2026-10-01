@@ -1,42 +1,44 @@
-
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Services() {
+  const { t } = useTranslation();
+
   const services = [
     {
       icon: 'ri-window-line',
-      title: 'Développement Web',
-      description: 'Création d\'applications web modernes et performantes avec React, Next.js, et les dernières technologies front-end. Architecture scalable et code maintenable.',
+      titleKey: 'developer.services.items.web.title',
+      descKey: 'developer.services.items.web.description',
       color: 'blue'
     },
     {
       icon: 'ri-server-line',
-      title: 'Backend & API',
-      description: 'Développement d\'APIs RESTful et GraphQL robustes avec Node.js, Express, et bases de données SQL/NoSQL. Sécurité et performance optimales.',
+      titleKey: 'developer.services.items.backend.title',
+      descKey: 'developer.services.items.backend.description',
       color: 'green'
     },
     {
       icon: 'ri-smartphone-line',
-      title: 'Design UI/UX',
-      description: 'Conception d\'interfaces utilisateur intuitives et esthétiques. Prototypage interactif, design system, et expérience utilisateur optimisée.',
+      titleKey: 'developer.services.items.design.title',
+      descKey: 'developer.services.items.design.description',
       color: 'purple'
     },
     {
       icon: 'ri-shopping-cart-line',
-      title: 'E-commerce',
-      description: 'Solutions e-commerce complètes avec intégration de paiement, gestion de catalogue, et optimisation des conversions. Shopify, WooCommerce, solutions custom.',
+      titleKey: 'developer.services.items.ecommerce.title',
+      descKey: 'developer.services.items.ecommerce.description',
       color: 'orange'
     },
     {
       icon: 'ri-rocket-line',
-      title: 'Optimisation & SEO',
-      description: 'Amélioration des performances web, optimisation SEO technique, et stratégies de référencement pour maximiser votre visibilité en ligne.',
+      titleKey: 'developer.services.items.seo.title',
+      descKey: 'developer.services.items.seo.description',
       color: 'red'
     },
     {
       icon: 'ri-tools-line',
-      title: 'Maintenance & Support',
-      description: 'Support technique continu, mises à jour régulières, corrections de bugs, et évolutions fonctionnelles pour garantir la pérennité de vos projets.',
+      titleKey: 'developer.services.items.maintenance.title',
+      descKey: 'developer.services.items.maintenance.description',
       color: 'teal'
     }
   ];
@@ -55,10 +57,10 @@ export default function Services() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
-            Mes <span className="text-blue-500">Services</span>
+            {t('developer.services.titlePart1')}<span className="text-blue-500">{t('developer.services.titlePart2')}</span>
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Des solutions complètes pour concrétiser vos projets digitaux, du concept initial au produit final
+            {t('developer.services.subtitle')}
           </p>
         </div>
 
@@ -73,8 +75,8 @@ export default function Services() {
                 <div className={`w-12 h-12 sm:w-16 sm:h-16 ${colors.bg} rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <i className={`${service.icon} ${colors.icon} text-2xl sm:text-3xl`}></i>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">{service.title}</h3>
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{service.description}</p>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">{t(service.titleKey)}</h3>
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{t(service.descKey)}</p>
               </div>
             );
           })}

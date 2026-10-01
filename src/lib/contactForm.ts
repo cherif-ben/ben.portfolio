@@ -1,3 +1,5 @@
+import i18n from '../i18n';
+
 const DEFAULT_CONTACT_EMAIL = 'benfaroukoucherif@gmail.com';
 const PLACEHOLDER_EMAIL = 'ton-adresse@email.com';
 
@@ -14,21 +16,21 @@ function formatFormSubmitError(rawMessage: string) {
   const message = rawMessage.toLowerCase();
 
   if (message.includes('activate') || message.includes('verify') || message.includes('confirm')) {
-    return "Adresse FormSubmit non activee. Ouvrez le mail de confirmation FormSubmit et activez l'adresse de reception.";
+    return i18n.t('formSubmit.notActive');
   }
 
   if (message.includes('email')) {
-    return "Adresse de reception invalide. Verifiez VITE_CONTACT_RECEIVER_EMAIL puis redemarrez l'application.";
+    return i18n.t('formSubmit.invalidEmail');
   }
 
-  return 'Envoi impossible pour le moment. Reessayez dans quelques instants.';
+  return i18n.t('formSubmit.sendFailed');
 }
 
 export async function sendContactMessage(fields: Record<string, string>) {
   const contactEmail = getContactEmail();
 
   if (!contactEmail || contactEmail === PLACEHOLDER_EMAIL) {
-    throw new Error('missing_contact_email');
+    throw new Error(i18n.t('formSubmit.missingEmail'));
   }
 
   const payload = { ...fields };
@@ -56,7 +58,6 @@ export async function sendContactMessage(fields: Record<string, string>) {
   });
 
   formData.append('_captcha', 'false');
-  // Keep FormSubmit default rendering to receive a regular email body.
   const replyTo = fields.email || fields.email_expediteur || '';
   formData.append('_replyto', replyTo);
 

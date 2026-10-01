@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
@@ -6,8 +7,12 @@ import Portfolio from './components/Portfolio';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import LanguageToggle from '../../components/base/LanguageToggle';
+
+const navSections = ['hero', 'about', 'services', 'portfolio', 'skills', 'contact'];
 
 export default function DeveloperPortfolio() {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -23,6 +28,11 @@ export default function DeveloperPortfolio() {
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
+  };
+
+  const getNavLabel = (section: string) => {
+    const key = `developer.nav.${section}` as const;
+    return t(key, section);
   };
 
   return (
@@ -44,20 +54,20 @@ export default function DeveloperPortfolio() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-              {['hero', 'about', 'services', 'portfolio', 'skills', 'contact'].map((section) => (
+              {navSections.map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
                   className="font-medium transition-colors cursor-pointer capitalize text-white hover:text-blue-200 whitespace-nowrap"
                 >
-                  {section === 'hero' ? 'Accueil' : 
-                   section === 'about' ? 'À propos' :
-                   section === 'portfolio' ? 'Réalisations' :
-                   section === 'skills' ? 'Compétences' :
-                   section}
+                  {getNavLabel(section)}
                 </button>
               ))}
             </nav>
+
+            <div className="flex items-center gap-4">
+              <LanguageToggle />
+            </div>
 
             {/* Mobile Menu Button */}
             <button
@@ -71,17 +81,13 @@ export default function DeveloperPortfolio() {
           {/* Mobile Navigation */}
           {isMobileMenuOpen && (
             <nav className="lg:hidden py-4 bg-blue-700 rounded-lg shadow-xl mt-2 mb-4">
-              {['hero', 'about', 'services', 'portfolio', 'skills', 'contact'].map((section) => (
+              {navSections.map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
                   className="block w-full text-left px-6 py-3 text-white hover:bg-blue-800 transition-colors cursor-pointer capitalize font-medium whitespace-nowrap"
                 >
-                  {section === 'hero' ? 'Accueil' : 
-                   section === 'about' ? 'À propos' :
-                   section === 'portfolio' ? 'Réalisations' :
-                   section === 'skills' ? 'Compétences' :
-                   section}
+                  {getNavLabel(section)}
                 </button>
               ))}
             </nav>

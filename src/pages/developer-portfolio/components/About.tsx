@@ -1,7 +1,9 @@
-
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function About() {
+  const { t } = useTranslation();
+
   return (
     <section id="about" className="py-16 sm:py-20 lg:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,13 +22,13 @@ export default function About() {
           
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-              À propos de <span className="text-blue-500">moi</span>
+              {t('developer.about.titlePart1')}<span className="text-blue-500">{t('developer.about.titlePart2')}</span>
             </h2>
             <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6 leading-relaxed">
-              Passionné par la technologie et le design, je crée des expériences web exceptionnelles qui allient esthétique moderne et performance technique. Mon approche combine créativité artistique et expertise technique pour donner vie à vos projets digitaux les plus ambitieux.
+              {t('developer.about.paragraph1')}
             </p>
             <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-              Avec plus de 5 ans d'expérience en développement full stack et design UI/UX, j'ai accompagné des startups innovantes et des entreprises établies dans leur transformation digitale. Je maîtrise l'ensemble du cycle de développement, de la conception initiale au déploiement final.
+              {t('developer.about.paragraph2')}
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
@@ -34,16 +36,16 @@ export default function About() {
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
                   <i className="ri-code-s-slash-line text-white text-xl sm:text-2xl"></i>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Développement</h3>
-                <p className="text-sm sm:text-base text-gray-600">React, Node.js, TypeScript, Python, bases de données</p>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{t('developer.about.devTitle')}</h3>
+                <p className="text-sm sm:text-base text-gray-600">{t('developer.about.devDesc')}</p>
               </div>
               
               <div className="bg-gray-50 p-4 sm:p-6 rounded-xl">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-3 sm:mb-4">
                   <i className="ri-palette-line text-white text-xl sm:text-2xl"></i>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Design</h3>
-                <p className="text-sm sm:text-base text-gray-600">UI/UX, Figma, Adobe Suite, prototypage interactif</p>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{t('developer.about.designTitle')}</h3>
+                <p className="text-sm sm:text-base text-gray-600">{t('developer.about.designDesc')}</p>
               </div>
             </div>
             
@@ -51,7 +53,7 @@ export default function About() {
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-blue-500 hover:bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 whitespace-nowrap cursor-pointer w-full sm:w-auto"
             >
-              Discutons de votre projet
+              {t('developer.about.ctaButton')}
             </button>
           </div>
         </div>
