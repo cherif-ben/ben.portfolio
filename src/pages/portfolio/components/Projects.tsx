@@ -14,6 +14,14 @@ export default function Projects() {
       link: 'https://v0-koussala.vercel.app/'
     },
     {
+      title: t('portfolio.projects.items.chapcal.title'),
+      description: t('portfolio.projects.items.chapcal.description'),
+      image: '/projet-chapcal.png',
+      tags: t('portfolio.projects.items.chapcal.tags', { returnObjects: true }),
+      icon: 'ri-archive-line',
+      link: 'https://chapcal.vercel.app/'
+    },
+    {
       title: t('portfolio.projects.items.taskflow.title'),
       description: t('portfolio.projects.items.taskflow.description'),
       image: '/projet-taskflow.png',

@@ -84,6 +84,11 @@ export default {
           description: 'Kussala is a recruitment platform built for the Central African market: verified job listings, search by role, city or contract, application tracking, and an employer space to publish offers. Bilingual French/English interface with a candidate area and a Pro plan.',
           tags: ['Job Search', 'Recruitment', 'Applications', 'Bilingual FR/EN'],
         },
+        chapcal: {
+          title: 'ChapCal - Stock & Sales Management',
+          description: 'ChapCal is a modular inventory management application: product catalog and categories, stock levels, inbound and outbound movements, low-stock alerts, customers, carts and orders, all gathered in a single dashboard.',
+          tags: ['Inventory Management', 'Dashboard', 'Orders', 'Stock Tracking'],
+        },
         taskflow: {
           title: 'TaskFlow - Task Management Application',
           description: 'TaskFlow is a task management application that allows you to plan projects, organize priorities, track progress in real time, and collaborate effectively in a team through a simple and intuitive interface.',
@@ -266,6 +271,11 @@ export default {
           title: 'Kussala - Job Portal',
           description: 'Recruitment platform for the Central African market: verified job listings, search by role or city, application tracking, and an employer space, with a bilingual interface.',
           tags: ['Web App', 'Recruitment', 'Applications', 'Bilingual FR/EN'],
+        },
+        chapcal: {
+          title: 'ChapCal - Stock Management',
+          description: 'Modular inventory management application: catalog, stock levels, movements, low-stock alerts, customers and orders gathered in a single dashboard.',
+          tags: ['Web App', 'Inventory Management', 'Dashboard', 'Stock Tracking'],
         },
         ecommerce: {
           title: 'E-commerce Platform',

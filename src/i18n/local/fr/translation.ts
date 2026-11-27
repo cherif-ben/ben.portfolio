@@ -84,6 +84,11 @@ export default {
           description: 'Kussala est une plateforme de recrutement conçue pour le marché centrafricain : offres vérifiées, recherche par métier, ville ou contrat, suivi des candidatures et espace employeur pour publier des annonces. Interface bilingue français/anglais, espace candidat et formule Pro.',
           tags: ['Recherche d\'emploi', 'Recrutement', 'Candidatures', 'Bilingue FR/EN'],
         },
+        chapcal: {
+          title: 'ChapCal - Gestion de stock et de ventes',
+          description: 'ChapCal est une application modulaire de gestion d\'inventaire : catalogue produits et catégories, niveaux de stock, mouvements d\'entrée et de sortie, alertes de rupture, clients, paniers et commandes, réunis dans un tableau de bord unique.',
+          tags: ['Gestion de stock', 'Tableau de bord', 'Commandes', 'Inventaire'],
+        },
         taskflow: {
           title: 'TaskFlow - Application de Gestion de Tâches',
           description: 'TaskFlow est une application de gestion de tâches qui permet de planifier les projets, organiser les priorités, suivre l\'avancement en temps réel et collaborer efficacement en équipe grâce à une interface simple et intuitive.',
@@ -266,6 +271,11 @@ export default {
           title: 'Kussala - Portail de l\'emploi',
           description: 'Plateforme de recrutement pour le marché centrafricain : offres vérifiées, recherche par métier ou ville, suivi des candidatures et espace employeur, avec une interface bilingue.',
           tags: ['Site web', 'Recrutement', 'Candidatures', 'Bilingue FR/EN'],
+        },
+        chapcal: {
+          title: 'ChapCal - Gestion de Stock',
+          description: 'Application modulaire de gestion d\'inventaire : catalogue, niveaux de stock, mouvements, alertes de rupture, clients et commandes réunis dans un tableau de bord unique.',
+          tags: ['Application web', 'Gestion de stock', 'Tableau de bord', 'Inventaire'],
         },
         ecommerce: {
           title: 'Plateforme E-commerce',
