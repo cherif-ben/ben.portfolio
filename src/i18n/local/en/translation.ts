@@ -55,7 +55,7 @@ export default {
   portfolio: {
     hero: {
       name: 'Ben Cherif Faroukou',
-      subtitle: 'Web & Mobile Developer | Designer',
+      subtitle: 'Software Engineer',
       description: 'A versatile developer skilled in Frontend, Backend, and UI/UX design. I create modern, intuitive interfaces while building reliable, high-performance backend architectures. I also apply a user-centered design approach to ensure a smooth, consistent, and aesthetically pleasing experience.',
       discoverProfile: 'Discover My Profile',
       contactMe: 'Contact Me',
@@ -64,7 +64,7 @@ export default {
       title: 'About Me',
       subtitlePrefix: 'Passionate about',
       subtitleHighlight: 'software development',
-      profession: 'Developer',
+      profession: 'Software Engineer',
       paragraph1: 'Passionate about software development, I enjoy transforming ideas into concrete solutions by creating efficient, intuitive, and well-structured applications. My approach combines technical expertise, creativity, and a constant drive to learn and improve my skills.',
       paragraph2: 'My academic background and professional experience have given me a unique set of technical and creative skills, ranging from designing modern web interfaces to building functional applications, through integrating high-performance backend solutions.',
       devTitle: 'Full-Stack Developer',
@@ -120,6 +120,7 @@ export default {
         database: 'Database',
         systems: 'Systems',
         tools: 'Tools',
+        ai: 'AI Tools',
       },
       keySkills: 'Key Competencies',
     },
@@ -191,7 +192,7 @@ export default {
       contact: 'Contact',
     },
     hero: {
-      badge: 'Full Stack Developer & Designer',
+      badge: 'Software Engineer',
       tagline: 'I transform your ideas into innovative web solutions and captivating designs. Specialized in full-stack development and modern UI/UX design.',
       viewProjects: 'View My Projects',
       contactMe: 'Contact Me',
@@ -296,6 +297,7 @@ export default {
         backend: 'Backend',
         design: 'Design',
         devops: 'Tools & DevOps',
+        ai: 'AI Tools',
       },
       toolsTitle: 'Technologies & Tools',
     },
@@ -335,7 +337,7 @@ export default {
       },
     },
     footer: {
-      about: 'Full Stack Developer & Designer passionate about creating exceptional digital experiences.',
+      about: 'Software Engineer passionate about creating exceptional digital experiences.',
       navigation: 'Navigation',
       contactTitle: 'Contact',
       navItems: {

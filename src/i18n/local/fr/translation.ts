@@ -55,7 +55,7 @@ export default {
   portfolio: {
     hero: {
       name: 'Ben Cherif Faroukou',
-      subtitle: 'Développeur web & mobile | Designer',
+      subtitle: 'Ingénieur logiciel',
       description: 'Développeur polyvalent maîtrisant le Frontend, le Backend et le design UI/UX. Je conçois des interfaces modernes et intuitives, tout en développant des architectures backend fiables et performantes. J’intègre également une approche design centrée utilisateur afin de garantir une expérience fluide, cohérente et esthétiquement soignée.',
       discoverProfile: 'Découvrir mon profil',
       contactMe: 'Me contacter',
@@ -64,7 +64,7 @@ export default {
       title: 'À propos de moi',
       subtitlePrefix: 'Passionné du',
       subtitleHighlight: 'developpement des logiciels',
-      profession: 'développeur',
+      profession: 'ingénieur logiciel',
       paragraph1: 'Passionné par le développement de logiciels, j’aime transformer des idées en solutions concrètes en créant des applications efficaces, intuitives et bien structurées. Mon approche allie maîtrise technique, créativité et volonté constante d’apprendre et d’améliorer mes compétences.',
       paragraph2: 'Mon parcours académique et mes expériences professionnelles m’ont permis de développer un ensemble unique de compétences techniques et créatives, allant de la conception d’interfaces web modernes au développement d’applications fonctionnelles, en passant par l’intégration de solutions backend performantes.',
       devTitle: 'Développeur Full-Stack',
@@ -120,6 +120,7 @@ export default {
         database: 'Base de données',
         systems: 'Systèmes',
         tools: 'Outils',
+        ai: 'Outils IA',
       },
       keySkills: 'Compétences Principales',
     },
@@ -191,7 +192,7 @@ export default {
       contact: 'Contact',
     },
     hero: {
-      badge: 'Full Stack Developer & Designer',
+      badge: 'Ingénieur logiciel',
       tagline: 'Je transforme vos idées en solutions web innovantes et designs captivants. Spécialisé en développement full stack et design UI/UX moderne.',
       viewProjects: 'Voir mes projets',
       contactMe: 'Me contacter',
@@ -296,6 +297,7 @@ export default {
         backend: 'Backend',
         design: 'Design',
         devops: 'Outils & DevOps',
+        ai: 'Outils IA',
       },
       toolsTitle: 'Technologies & Outils',
     },
@@ -335,7 +337,7 @@ export default {
       },
     },
     footer: {
-      about: 'Développeur Full Stack & Designer passionné par la création d\'expériences digitales exceptionnelles.',
+      about: 'Ingénieur logiciel passionné par la création d\'expériences digitales exceptionnelles.',
       navigation: 'Navigation',
       contactTitle: 'Contact',
       navItems: {

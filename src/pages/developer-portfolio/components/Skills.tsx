@@ -44,6 +44,15 @@ export default function Skills() {
         { name: 'CI/CD', level: 80 },
         { name: 'AWS / Vercel', level: 85 }
       ]
+    },
+    {
+      titleKey: 'developer.skills.categories.ai',
+      icon: 'ri-robot-line',
+      skills: [
+        { name: 'ChatGPT', level: 90 },
+        { name: 'GitHub Copilot', level: 85 },
+        { name: 'Claude', level: 80 }
+      ]
     }
   ];
 
