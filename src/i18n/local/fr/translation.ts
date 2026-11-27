@@ -77,7 +77,13 @@ export default {
     projects: {
       title: 'Projets & Réalisations',
       subtitle: 'Une sélection de mes projets académiques et professionnels démontrant ma polyvalence créative',
+      viewProject: 'Voir le projet',
       items: {
+        kussala: {
+          title: 'Kussala - Portail de l\'emploi en Centrafrique',
+          description: 'Kussala est une plateforme de recrutement conçue pour le marché centrafricain : offres vérifiées, recherche par métier, ville ou contrat, suivi des candidatures et espace employeur pour publier des annonces. Interface bilingue français/anglais, espace candidat et formule Pro.',
+          tags: ['Recherche d\'emploi', 'Recrutement', 'Candidatures', 'Bilingue FR/EN'],
+        },
         taskflow: {
           title: 'TaskFlow - Application de Gestion de Tâches',
           description: 'TaskFlow est une application de gestion de tâches qui permet de planifier les projets, organiser les priorités, suivre l\'avancement en temps réel et collaborer efficacement en équipe grâce à une interface simple et intuitive.',

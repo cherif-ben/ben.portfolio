@@ -77,7 +77,13 @@ export default {
     projects: {
       title: 'Projects & Realizations',
       subtitle: 'A selection of my academic and professional projects demonstrating my creative versatility',
+      viewProject: 'View project',
       items: {
+        kussala: {
+          title: 'Kussala - Job Portal for the Central African Republic',
+          description: 'Kussala is a recruitment platform built for the Central African market: verified job listings, search by role, city or contract, application tracking, and an employer space to publish offers. Bilingual French/English interface with a candidate area and a Pro plan.',
+          tags: ['Job Search', 'Recruitment', 'Applications', 'Bilingual FR/EN'],
+        },
         taskflow: {
           title: 'TaskFlow - Task Management Application',
           description: 'TaskFlow is a task management application that allows you to plan projects, organize priorities, track progress in real time, and collaborate effectively in a team through a simple and intuitive interface.',

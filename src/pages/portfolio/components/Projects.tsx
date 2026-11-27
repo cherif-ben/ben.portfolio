@@ -6,39 +6,52 @@ export default function Projects() {
 
   const projects = [
     {
+      title: t('portfolio.projects.items.kussala.title'),
+      description: t('portfolio.projects.items.kussala.description'),
+      image: '/projet-kussala.png',
+      tags: t('portfolio.projects.items.kussala.tags', { returnObjects: true }),
+      icon: 'ri-briefcase-line',
+      link: 'https://v0-koussala.vercel.app/'
+    },
+    {
       title: t('portfolio.projects.items.taskflow.title'),
       description: t('portfolio.projects.items.taskflow.description'),
       image: '/projet-taskflow.png',
       tags: t('portfolio.projects.items.taskflow.tags', { returnObjects: true }),
-      icon: 'ri-play-circle-line'
+      icon: 'ri-play-circle-line',
+      link: ''
     },
     {
       title: t('portfolio.projects.items.sekouh.title'),
       description: t('portfolio.projects.items.sekouh.description'),
       image: '/projet-de-gestion-ecole.png',
       tags: t('portfolio.projects.items.sekouh.tags', { returnObjects: true }),
-      icon: 'ri-cup-line'
+      icon: 'ri-cup-line',
+      link: ''
     },
     {
       title: t('portfolio.projects.items.cms.title'),
       description: t('portfolio.projects.items.cms.description'),
       image: 'https://readdy.ai/api/search-image?query=Web%20development%20workspace%20with%20multiple%20monitors%20showing%20CMS%20interface%2C%20clean%20code%20editor%2C%20modern%20web%20development%20setup%2C%20professional%20programming%20environment%2C%20user%20interface%20design&width=600&height=400&seq=cms-development&orientation=landscape',
       tags: t('portfolio.projects.items.cms.tags', { returnObjects: true }),
-      icon: 'ri-code-line'
+      icon: 'ri-code-line',
+      link: ''
     },
     {
       title: t('portfolio.projects.items.posters.title'),
       description: t('portfolio.projects.items.posters.description'),
       image: 'https://readdy.ai/api/search-image?query=Professional%20graphic%20design%20workspace%20with%20event%20posters%2C%20creative%20design%20tools%2C%20colorful%20marketing%20materials%2C%20print%20design%20layouts%2C%20professional%20branding%20elements%2C%20modern%20design%20studio&width=600&height=400&seq=poster-design&orientation=landscape',
       tags: t('portfolio.projects.items.posters.tags', { returnObjects: true }),
-      icon: 'ri-image-2-line'
+      icon: 'ri-image-2-line',
+      link: ''
     },
     {
       title: t('portfolio.projects.items.logo.title'),
       description: t('portfolio.projects.items.logo.description'),
       image: 'https://readdy.ai/api/search-image?query=Logo%20design%20process%20showing%20sketches%2C%20digital%20design%20tools%2C%20brand%20identity%20elements%2C%20creative%20workspace%20with%20logo%20concepts%2C%20professional%20branding%20materials%2C%20design%20inspiration%20boards&width=600&height=400&seq=logo-creation&orientation=landscape',
       tags: t('portfolio.projects.items.logo.tags', { returnObjects: true }),
-      icon: 'ri-palette-line'
+      icon: 'ri-palette-line',
+      link: ''
     }
   ];
 
@@ -86,6 +99,18 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
+
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-6 inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-300"
+                    >
+                      {t('portfolio.projects.viewProject')}
+                      <i className="ri-arrow-right-up-line"></i>
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
