@@ -7,6 +7,14 @@ export default function Portfolio() {
 
   const projects = [
     {
+      title: t('developer.portfolio.items.kussala.title'),
+      category: 'web',
+      image: '/projet-kussala.png',
+      description: t('developer.portfolio.items.kussala.description'),
+      tags: t('developer.portfolio.items.kussala.tags', { returnObjects: true }),
+      link: 'https://v0-koussala.vercel.app/'
+    },
+    {
       title: t('developer.portfolio.items.ecommerce.title'),
       category: 'web',
       image: 'https://readdy.ai/api/search-image?query=Modern%20e-commerce%20website%20interface%20on%20laptop%20screen%2C%20clean%20product%20showcase%2C%20shopping%20cart%20interface%2C%20professional%20online%20store%20design%2C%20contemporary%20web%20application%2C%20minimalist%20layout%20with%20product%20images&width=800&height=600&seq=project-ecommerce&orientation=landscape',

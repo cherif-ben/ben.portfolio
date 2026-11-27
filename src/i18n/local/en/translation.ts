@@ -262,6 +262,11 @@ export default {
       },
       viewProject: 'View Project',
       items: {
+        kussala: {
+          title: 'Kussala - Job Portal',
+          description: 'Recruitment platform for the Central African market: verified job listings, search by role or city, application tracking, and an employer space, with a bilingual interface.',
+          tags: ['Web App', 'Recruitment', 'Applications', 'Bilingual FR/EN'],
+        },
         ecommerce: {
           title: 'E-commerce Platform',
           description: 'Complete online store with secure payment and inventory management',

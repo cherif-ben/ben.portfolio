@@ -262,6 +262,11 @@ export default {
       },
       viewProject: 'Voir le projet',
       items: {
+        kussala: {
+          title: 'Kussala - Portail de l\'emploi',
+          description: 'Plateforme de recrutement pour le marché centrafricain : offres vérifiées, recherche par métier ou ville, suivi des candidatures et espace employeur, avec une interface bilingue.',
+          tags: ['Site web', 'Recrutement', 'Candidatures', 'Bilingue FR/EN'],
+        },
         ecommerce: {
           title: 'Plateforme E-commerce',
           description: 'Boutique en ligne complète avec paiement sécurisé et gestion de stock',
