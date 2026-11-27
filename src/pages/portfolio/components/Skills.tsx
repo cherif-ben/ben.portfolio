@@ -66,6 +66,16 @@ export default function Skills() {
         { name: 'Figma (maquettes et prototypes)', level: 75 },
         { name: 'Canva (design rapide, visuels)', level: 75 }
       ]
+    },
+    {
+      titleKey: 'portfolio.skills.categories.ai',
+      icon: 'ri-robot-line',
+      color: 'bg-indigo-500',
+      skills: [
+        { name: 'ChatGPT', level: 90 },
+        { name: 'GitHub Copilot', level: 85 },
+        { name: 'Claude', level: 80 }
+      ]
     }
   ];
 
@@ -75,7 +85,8 @@ export default function Skills() {
     'portfolio.skills.categories.design',
     'portfolio.skills.categories.database',
     'portfolio.skills.categories.systems',
-    'portfolio.skills.categories.tools'
+    'portfolio.skills.categories.tools',
+    'portfolio.skills.categories.ai'
   ];
 
   return (
